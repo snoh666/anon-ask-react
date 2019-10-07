@@ -43,7 +43,7 @@ const Main = ({ isAuth, database, loggedUser }) => {
   return (
     <ComponentWrapper>
       <Header>
-        <h2>Spotted - Staszic</h2>
+        <h2>Spotted Staszic</h2>
         {isAuth ? (
           <HeaderUser>
             <span>Witaj, { loggedUser }</span>
