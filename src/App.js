@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from './components/login';
 import Main from './components/main';
 import PrivateRoute from './components/privRoute';
 import Tells from './components/tells';
-import firebase from 'firebase/app';
 
 
 function App({ firebase }) {
