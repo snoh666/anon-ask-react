@@ -4,28 +4,23 @@ import Login from './components/login';
 import Main from './components/main';
 import PrivateRoute from './components/privRoute';
 import Tells from './components/tells';
+import firebase from 'firebase/app';
 
 
-function App() {
+function App({ firebase }) {
 
   const [isAuth, setAuth] = useState(false);
 
-  // Firebase setup ================
-  const firebaseConfig = {
-    apiKey: "AIzaSyAsjc-8h32zPZh0qJIBDU1_XSCDxtvhGXE",
-    authDomain: "spotted-staszicv2.firebaseapp.com",
-    databaseURL: "https://spotted-staszicv2.firebaseio.com",
-    projectId: "spotted-staszicv2",
-    storageBucket: "",
-    messagingSenderId: "948345929307",
-    appId: "1:948345929307:web:b846e779c8b6f59778097e",
-    measurementId: "G-7KLNE78VG8"
-  };
-  // Initialize Firebase
-  // firebase.initializeApp(firebaseConfig);
-  // firebase.analytics();
+  const db = firebase.firestore();
 
-  // End of firebase setup ==========
+  // db.doc('admin').get().then(doc => {
+  //   if (doc.exists) {
+  //     console.log("Document data:", doc.data());
+  //   } else {
+  //     // doc.data() will be undefined in this case
+  //     console.log("No such document!");
+  //   }
+  // }).catch(err => console.log(err))
 
   return (
     <Router>
@@ -35,7 +30,7 @@ function App() {
             <Main isAuth={isAuth} />
           </Route>
           <Route path="/login">
-            <Login setAuth={setAuth} isAuth={isAuth} />
+            <Login database={db} setAuth={setAuth} isAuth={isAuth} />
           </Route>
           <PrivateRoute isAuth={isAuth} path="/tells" component={Tells} />
         </Switch>
