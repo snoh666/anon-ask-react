@@ -10,6 +10,7 @@ import firebase from 'firebase/app';
 function App({ firebase }) {
 
   const [isAuth, setAuth] = useState(false);
+  const [loggedUser, setLoggedUser] = useState('');
 
   const db = firebase.firestore();
 
@@ -30,7 +31,7 @@ function App({ firebase }) {
             <Main isAuth={isAuth} />
           </Route>
           <Route path="/login">
-            <Login database={db} setAuth={setAuth} isAuth={isAuth} />
+            <Login setUser={setLoggedUser} database={db} setAuth={setAuth} isAuth={isAuth} />
           </Route>
           <PrivateRoute database={db} isAuth={isAuth} path="/tells" component={Tells} />
         </Switch>
