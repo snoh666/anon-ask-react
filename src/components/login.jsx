@@ -21,7 +21,7 @@ const Login = ({ setAuth, isAuth, database, setLoggedUser }) => {
     const db = database.collection('/users');
     db.doc(username).get().then(doc => {
       if (doc.exists) {
-        if(doc.data().password == password){
+        if(doc.data().password === password){
           setErrMessage('');
           setLoggedUser(username);
           setAuth(true);
