@@ -1,6 +1,5 @@
-import React from 'react'
-import Tells from './tells'
-import {Route, Redirect} from 'react-router-dom'
+import React from 'react';
+import {Route, Redirect} from 'react-router-dom';
 
 const PrivateRoute = ({isAuth, ...props}) => {
 
