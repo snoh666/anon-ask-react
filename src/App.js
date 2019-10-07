@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Login from './components/login';
 import Main from './components/main';
 import PrivateRoute from './components/privRoute';
+import Tells from './components/tells';
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
           <Route path="/login">
             <Login setAuth={setAuth} isAuth={isAuth} />
           </Route>
-          <PrivateRoute path="/tells" isAuth={isAuth} />
+          <PrivateRoute isAuth={isAuth} path="/tells" component={Tells} />
         </Switch>
       </div>
     </Router>
