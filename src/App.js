@@ -11,7 +11,6 @@ function App({ firebase }) {
   const [isAuth, setAuth] = useState(false);
   const [loggedUser, setLoggedUser] = useState('');
 
-  const db = firebase.firestore();
 
   // db.doc('admin').get().then(doc => {
   //   if (doc.exists) {
@@ -30,9 +29,9 @@ function App({ firebase }) {
             <Main isAuth={isAuth} />
           </Route>
           <Route path="/login">
-            <Login setLoggedUser={setLoggedUser} database={db} setAuth={setAuth} isAuth={isAuth} />
+            <Login setLoggedUser={setLoggedUser} database={firebase} setAuth={setAuth} isAuth={isAuth} />
           </Route>
-          <PrivateRoute database={db} isAuth={isAuth} path="/tells" component={Tells} />
+          <PrivateRoute database={firebase} isAuth={isAuth} path="/tells" Component={Tells} />
         </Switch>
       </div>
     </Router>
