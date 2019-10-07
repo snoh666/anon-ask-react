@@ -6,7 +6,7 @@ const PrivateRoute = ({isAuth, ...props}) => {
 
   return isAuth ? (
     <Route {...props} />
-  ) : (<Redirect to="/" />)
+  ) : (<Redirect to="/login" />)
 }
 
 export default PrivateRoute;
