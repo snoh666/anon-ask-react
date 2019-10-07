@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Tell = () => {
+const Tell = ({data: {tell, time, isAdded}, currentTime}) => {
 
   return (
     <div>
-      <span>Tell component</span>
+      <div>{tell}</div>
+      <div>{Math.floor((currentTime - time) / 1000 / 60) + 'min ago.'}</div>
+      <div>{isAdded ? 'true' : 'false'}</div>
     </div>
   );
 }
