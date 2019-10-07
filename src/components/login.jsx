@@ -6,6 +6,8 @@ import ErrorMessage from './styled-components/ErrorMessage';
 import ComponentWrapper from './styled-components/ComponentWrapper';
 import Button from './styled-components/Button';
 import Input from './styled-components/Input';
+import Label from './styled-components/Label';
+import InputField from './styled-components/InputField';
 
 const Login = ({ setAuth, isAuth, database, setLoggedUser }) => {
 
@@ -46,9 +48,15 @@ const Login = ({ setAuth, isAuth, database, setLoggedUser }) => {
         {isAuth ? (
           <Redirect to="/" />
         ) : (
-          <StyledForm onSubmit = { tryLogin }>
-            <Input type="text" value={username} onChange={updateUsername} />
-            <Input type="password" value={password} onChange={updatePassword} />
+          <StyledForm onSubmit={ tryLogin }>
+            <InputField>
+              <Input id="username" type="text" value={username} onChange={updateUsername} placeholder="&nbsp;" />
+              <Label htmlFor="username">Username</Label>
+            </InputField>
+          <InputField>
+              <Input id="password" type="password" value={password} onChange={updatePassword} placeholder="&nbsp;" />
+              <Label htmlFor="password">Password</Label>
+          </InputField>
 
             <Button type="submit">Login</Button>
             {errMessage.length > 5 ? (<ErrorMessage>{errMessage}</ErrorMessage>) : null}

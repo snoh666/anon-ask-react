@@ -4,11 +4,15 @@ const Input = styled.input`
   padding: .2em .5em;
   margin: 10px 0 5px;
   background: none;
-  border: 1px solid black;
+  border: none;
+  border-bottom: 1px solid black;
   color: ${props => props.theme.fontColor};
 
-  &::placeholder{
-    color: #dfe6e9
+  &:focus + label{
+    top: -.45em;
+  }
+  &:not(:placeholder-shown) + label{
+    top: -.45em;
   }
 `;
 

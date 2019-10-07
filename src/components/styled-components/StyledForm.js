@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
-  display: flex;
+  display: grid;
   max-width: 300px;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  & > button{
+    align-self: start;
+    justify-self: end;
+  }
 `;
 
 export default StyledForm;
