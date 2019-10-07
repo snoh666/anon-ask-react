@@ -6,8 +6,9 @@ import StyledForm from './styled-components/StyledForm';
 import ErrorMessage from './styled-components/ErrorMessage';
 import Header from './styled-components/Header';
 import ComponentWrapper from './styled-components/ComponentWrapper';
+import HeaderUser from './styled-components/HeaderUser';
 
-const Main = ({ isAuth, database }) => {
+const Main = ({ isAuth, database, loggedUser }) => {
 
   const [tell, setTell] = useState('');
   const [errMessage, setErrMessage] = useState('');
@@ -43,7 +44,12 @@ const Main = ({ isAuth, database }) => {
     <ComponentWrapper>
       <Header>
         <h2>Spotted - Staszic</h2>
-        {isAuth ? (<Link to="/tells"><Button>Tells</Button></Link>) : (<Link to="/login"><Button>Login</Button></Link>)}
+        {isAuth ? (
+          <HeaderUser>
+            <span>Witaj, { loggedUser }</span>
+            <Link to="/tells"><Button tellCheck>Sprawdz pytania</Button></Link>
+          </HeaderUser>
+        ) : (<Link to="/login"><Button>Login</Button></Link>)}
       </Header>
       <section>
         <StyledForm tellForm onSubmit={sendTell}>

@@ -24,7 +24,7 @@ function App({ firebase }) {
         <Wrapper>
           <Switch>
             <Route exact path="/">
-              <Main isAuth={isAuth} database={firebase} />
+              <Main isAuth={isAuth} database={firebase} loggedUser={loggedUser} />
             </Route>
             <Route path="/login">
               <Login setLoggedUser={setLoggedUser} database={firebase} setAuth={setAuth} isAuth={isAuth} />

@@ -8,7 +8,8 @@ const Header = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #d63031;
+  color: #d63031;
 `;
 
 export default Header;
