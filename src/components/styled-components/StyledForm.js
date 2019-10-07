@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledForm = styled.form`
   display: grid;
-  max-width: 300px;
+  width: 200px;
   grid-template-rows: 1fr 1fr 1fr;
 
   & > button{
