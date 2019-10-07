@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import Button from './styled-components/Button';
+import TextArea from './styled-components/TextArea';
+import StyledForm from './styled-components/StyledForm';
+import ErrorMessage from './styled-components/ErrorMessage';
+import Header from './styled-components/Header';
+import ComponentWrapper from './styled-components/ComponentWrapper';
 
 const Main = ({ isAuth, database }) => {
 
@@ -34,19 +40,19 @@ const Main = ({ isAuth, database }) => {
   }
 
   return (
-    <div>
-      <header>
-        <h2>Spotted Staszic</h2>
-        {isAuth ? (<Link to="/tells">Tells</Link>) : (<Link to="/login">Login</Link>)}
-      </header>
+    <ComponentWrapper>
+      <Header>
+        <h2>Spotted - Staszic</h2>
+        {isAuth ? (<Link to="/tells"><Button>Tells</Button></Link>) : (<Link to="/login"><Button>Login</Button></Link>)}
+      </Header>
       <section>
-        <form onSubmit={sendTell}>
-          <textarea cols="30" rows="5" placeholder="Send a tell.." value={tell} onChange={updateTell}></textarea>
-          <button type="submit">Send</button>
-          {errMessage.length > 5 ? (<span className="info">{errMessage}</span>) : null}
-        </form>
+        <StyledForm onSubmit={sendTell}>
+          <TextArea cols="30" rows="5" placeholder="Send a tell.." value={tell} onChange={updateTell}></TextArea>
+          <Button type="submit">Send</Button>
+          {errMessage.length > 5 ? (<ErrorMessage>{errMessage}</ErrorMessage>) : null}
+        </StyledForm>
       </section>
-    </div>
+    </ComponentWrapper>
   );
 }
 

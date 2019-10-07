@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom';
 
+import StyledForm from './styled-components/StyledForm';
+import ErrorMessage from './styled-components/ErrorMessage';
+import ComponentWrapper from './styled-components/ComponentWrapper';
+import Button from './styled-components/Button';
+import Input from './styled-components/Input';
+
 const Login = ({ setAuth, isAuth, database, setLoggedUser }) => {
 
   const [username, setUsername] = useState("");
@@ -36,20 +42,19 @@ const Login = ({ setAuth, isAuth, database, setLoggedUser }) => {
   }
 
   return (
-    <header>
-      <div className="Login">
+      <ComponentWrapper>
         {isAuth ? (
           <Redirect to="/" />
         ) : (
-          <form onSubmit = { tryLogin }>
-            <input type="text" value={username} onChange={updateUsername} />
-            <input type="password" value={password} onChange={updatePassword} />
-            <button type="submit">Login</button>
-            {errMessage.length > 5 ? (<span className="info" >{errMessage}</span>) : null}
-          </form>
+          <StyledForm onSubmit = { tryLogin }>
+            <Input type="text" value={username} onChange={updateUsername} />
+            <Input type="password" value={password} onChange={updatePassword} />
+
+            <Button type="submit">Login</Button>
+            {errMessage.length > 5 ? (<ErrorMessage>{errMessage}</ErrorMessage>) : null}
+          </StyledForm>
         )}
-      </div>
-    </header>
+      </ComponentWrapper>
   );
 }
 
