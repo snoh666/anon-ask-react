@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const TextArea = styled.textarea`
   resize: none;
+  width: 100%;
   padding: .25em;
   background: none;
   border: 1px solid black;

@@ -46,7 +46,7 @@ const Main = ({ isAuth, database }) => {
         {isAuth ? (<Link to="/tells"><Button>Tells</Button></Link>) : (<Link to="/login"><Button>Login</Button></Link>)}
       </Header>
       <section>
-        <StyledForm onSubmit={sendTell}>
+        <StyledForm tellForm onSubmit={sendTell}>
           <TextArea cols="30" rows="5" placeholder="Send a tell.." value={tell} onChange={updateTell}></TextArea>
           <Button type="submit">Send</Button>
           {errMessage.length > 5 ? (<ErrorMessage>{errMessage}</ErrorMessage>) : null}
