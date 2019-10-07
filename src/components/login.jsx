@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom';
 
-const Login = ({ setAuth, isAuth }) => {
+const Login = ({ setAuth, isAuth, database }) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errMessage, setErrMessage] = useState("");
 
   const updateUsername = e => {
     setUsername(e.target.value);
@@ -17,7 +18,20 @@ const Login = ({ setAuth, isAuth }) => {
   const tryLogin = e => {
     e.preventDefault();
 
-    setAuth(true);
+    const db = database.collection('/users');
+    db.doc(username).get().then(doc => {
+      if (doc.exists) {
+        if(doc.data().password == password){
+          setErrMessage('');
+          setAuth(true);
+        } else {
+          setErrMessage("User or password is incorrect!");
+        }
+      } else {
+        // doc.data() will be undefined in this case
+        setErrMessage("User or password is incorrect!");
+      }
+    }).catch(err => console.log(err))
 
   }
 
@@ -31,6 +45,7 @@ const Login = ({ setAuth, isAuth }) => {
             <input type="text" value={username} onChange={updateUsername} />
             <input type="password" value={password} onChange={updatePassword} />
             <button type="submit">Login</button>
+            {errMessage.length > 5 ? (<span className="info" >{errMessage}</span>) : null}
           </form>
         )}
       </div>
