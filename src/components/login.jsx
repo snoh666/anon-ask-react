@@ -25,21 +25,25 @@ const Login = ({ setAuth, isAuth, database, setLoggedUser }) => {
 
   const tryLogin = e => {
     e.preventDefault();
-    const db = database.firestore().collection('/users');
-    db.doc(username).get().then(doc => {
-      if (doc.exists) {
-        if(doc.data().password === password){
-          setErrMessage('');
-          setLoggedUser(username);
-          setAuth(true);
+    if(username.length > 3 || password.length > 3) {
+      const db = database.firestore().collection('/users');
+      db.doc(username).get().then(doc => {
+        if (doc.exists) {
+          if (doc.data().password === password) {
+            setErrMessage('');
+            setLoggedUser(username);
+            setAuth(true);
+          } else {
+            setErrMessage("User or password is incorrect!");
+          }
         } else {
+          // doc.data() will be undefined in this case
           setErrMessage("User or password is incorrect!");
         }
-      } else {
-        // doc.data() will be undefined in this case
-        setErrMessage("User or password is incorrect!");
-      }
-    }).catch(err => console.log(err))
+      }).catch(err => console.log(err))
+    } else {
+      setErrMessage("User or password is incorrect!")
+    }
 
   }
 
