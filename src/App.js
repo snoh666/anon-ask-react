@@ -32,7 +32,7 @@ function App({ firebase }) {
           <Route path="/login">
             <Login database={db} setAuth={setAuth} isAuth={isAuth} />
           </Route>
-          <PrivateRoute isAuth={isAuth} path="/tells" component={Tells} />
+          <PrivateRoute database={db} isAuth={isAuth} path="/tells" component={Tells} />
         </Switch>
       </div>
     </Router>
