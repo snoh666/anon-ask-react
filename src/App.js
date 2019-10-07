@@ -26,7 +26,7 @@ function App({ firebase }) {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <Main isAuth={isAuth} />
+            <Main isAuth={isAuth} database={firebase} />
           </Route>
           <Route path="/login">
             <Login setLoggedUser={setLoggedUser} database={firebase} setAuth={setAuth} isAuth={isAuth} />
