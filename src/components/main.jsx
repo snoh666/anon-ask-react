@@ -18,6 +18,7 @@ const Main = ({ isAuth }) => {
   return (
     <div>
       <header>
+        <h2>Spotted Staszic</h2>
         {isAuth ? (<Link to="/tells">Tells</Link>) : (<Link to="/login">Login</Link>)}
       </header>
       <section>
