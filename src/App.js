@@ -11,16 +11,6 @@ function App({ firebase }) {
   const [isAuth, setAuth] = useState(false);
   const [loggedUser, setLoggedUser] = useState('');
 
-
-  // db.doc('admin').get().then(doc => {
-  //   if (doc.exists) {
-  //     console.log("Document data:", doc.data());
-  //   } else {
-  //     // doc.data() will be undefined in this case
-  //     console.log("No such document!");
-  //   }
-  // }).catch(err => console.log(err))
-
   return (
     <Router>
       <div className="App">
