@@ -1,12 +1,12 @@
 import React from 'react'
+import Tells from './tells'
+import {Route, Redirect} from 'react-router-dom'
 
-const PrivateRoute = () => {
+const PrivateRoute = ({isAuth, ...props}) => {
 
-  return (
-    <div>
-      <span>PrivateRoute route</span>
-    </div>
-  );
+  return isAuth ? (
+    <Route {...props} />
+  ) : (<Redirect to="/" />)
 }
 
 export default PrivateRoute;
