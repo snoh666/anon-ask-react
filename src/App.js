@@ -31,7 +31,7 @@ function App({ firebase }) {
             <Main isAuth={isAuth} />
           </Route>
           <Route path="/login">
-            <Login setUser={setLoggedUser} database={db} setAuth={setAuth} isAuth={isAuth} />
+            <Login setLoggedUser={setLoggedUser} database={db} setAuth={setAuth} isAuth={isAuth} />
           </Route>
           <PrivateRoute database={db} isAuth={isAuth} path="/tells" component={Tells} />
         </Switch>

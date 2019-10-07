@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom';
 
-const Login = ({ setAuth, isAuth, database }) => {
+const Login = ({ setAuth, isAuth, database, setLoggedUser }) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,6 +23,7 @@ const Login = ({ setAuth, isAuth, database }) => {
       if (doc.exists) {
         if(doc.data().password == password){
           setErrMessage('');
+          setLoggedUser(username);
           setAuth(true);
         } else {
           setErrMessage("User or password is incorrect!");
