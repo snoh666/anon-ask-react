@@ -20,7 +20,7 @@ const Login = ({ setAuth, isAuth }) => {
           <Redirect to="/" />
         ) : (
           <form onSubmit = { tryLogin }>
-            <input type = "text" className = "username"/>
+            <input type="text" className="username"/>
             <button type="submit">Login</button>
           </form>
         )}
