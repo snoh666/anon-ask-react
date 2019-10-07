@@ -9,6 +9,23 @@ function App() {
 
   const [isAuth, setAuth] = useState(false);
 
+  // Firebase setup ================
+  const firebaseConfig = {
+    apiKey: "AIzaSyBfNQKseIHTIQ_mja354iVlQ1FSA7wJsl4",
+    authDomain: "spotted-staszic.firebaseapp.com",
+    databaseURL: "https://spotted-staszic.firebaseio.com",
+    projectId: "spotted-staszic",
+    storageBucket: "",
+    messagingSenderId: "991474295970",
+    appId: "1:991474295970:web:a09c45df5e9cca0987e3fb",
+    measurementId: "G-YCWSF6THG2"
+  };
+  // Initialize Firebase
+  // firebase.initializeApp(firebaseConfig);
+  // firebase.analytics();
+
+  // End of firebase setup ==========
+
   return (
     <Router>
       <div className="App">
