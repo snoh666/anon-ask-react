@@ -2,13 +2,13 @@ import React from 'react'
 
 const Tells = ({ database }) => {
 
-  const db = database.collection('/tells');
+  const db = database.firestore().collection('/tells');
 
-  // db.get().then(doc => {
-  //   if(doc.exist) {
-  //     console.log(doc.data());
-  //   }
-  // }).catch(err => console.log(err))
+  db.get().then(query => {
+    query.forEach((doc) => {
+      console.log(doc.data());
+    });
+  }).catch(err => console.log(err));
 
   return (
     <div>
