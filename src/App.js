@@ -31,10 +31,10 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <Main />
+            <Main isAuth={isAuth} />
           </Route>
           <Route path="/login">
-            <Login setAuth={setAuth} />
+            <Login setAuth={setAuth} isAuth={isAuth} />
           </Route>
           <PrivateRoute path="/tells" isAuth={isAuth} />
         </Switch>
