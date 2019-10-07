@@ -23,7 +23,7 @@ const Main = ({ isAuth }) => {
       </header>
       <section>
         <form onSubmit={sendTell}>
-          <textarea cols="30" rows="5" value={tell} onChange={updateTell}></textarea>
+          <textarea cols="30" rows="5" placeholder="Send a tell.." value={tell} onChange={updateTell}></textarea>
           <button type="submit">Send</button>
         </form>
       </section>
