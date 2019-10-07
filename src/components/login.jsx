@@ -17,8 +17,7 @@ const Login = ({ setAuth, isAuth, database, setLoggedUser }) => {
 
   const tryLogin = e => {
     e.preventDefault();
-
-    const db = database.collection('/users');
+    const db = database.firestore().collection('/users');
     db.doc(username).get().then(doc => {
       if (doc.exists) {
         if(doc.data().password === password){
