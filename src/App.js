@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Login from './components/login';
+import Main from './components/main';
 
 
 function App() {
@@ -11,12 +13,10 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <div>
-              <Link to="/login">Lnik</Link>
-            </div>
+            <Main />
           </Route>
           <Route path="/login">
-            <span>Hello login</span>
+            <Login />
           </Route>
         </Switch>
       </div>
