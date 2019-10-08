@@ -7,9 +7,12 @@ const Header = styled.header`
   padding: 1em .25em;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #d63031;
-  color: #d63031;
+  justify-content: center;
+
+  & h2 {
+    font-weight: lighter;
+    border-bottom: 1px solid ${props => props.theme.fontColor};
+  }
 `;
 
 export default Header;
