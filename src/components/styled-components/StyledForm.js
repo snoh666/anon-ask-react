@@ -9,6 +9,11 @@ const StyledForm = styled.form`
   & > button{
     align-self: start;
     justify-self: end;
+    transition: transform .4s ease;
+
+    &:hover{
+      transform: scale(1.15);
+    }
   }
 `;
 
