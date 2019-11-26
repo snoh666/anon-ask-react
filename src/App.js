@@ -15,9 +15,9 @@ function App({ firebase }) {
   const [loggedUser, setLoggedUser] = useState('');
 
   const theme = {
-    fontColor: '#ECF0F1',
+    fontColor: '#e84393',
     hoverColor: '#BDC3C7',
-    bgColor: '#2C3E50'
+    bgColor: '#ffffff'
   }
 
   return (
