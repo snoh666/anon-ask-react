@@ -12,6 +12,7 @@ const Main = ({ isAuth, database, loggedUser }) => {
 
   const [tell, setTell] = useState('');
   const [errMessage, setErrMessage] = useState('');
+  const [succes, setSucces] = useState(false);
 
   const updateTell = e => {
     setTell(e.target.value);
@@ -30,11 +31,19 @@ const Main = ({ isAuth, database, loggedUser }) => {
         tell: tell,
         time: new Date().getTime(),
         isAdded: false
+      }).then(_ => {
+        setSucces(true);
+        setErrMessage('Tell has been sent.');
+      }).catch(err => {
+        setSucces(false);
+        setErrMessage('Something went wrong :c');
+        console.log(err);
       });
 
       setTell('');
 
     } else {
+      setSucces(false);
       setErrMessage('Tell has to be longer than 5 signs.')
     }
 
@@ -43,7 +52,9 @@ const Main = ({ isAuth, database, loggedUser }) => {
   return (
     <ComponentWrapper>
       <Header>
-        <h2>Spotted Staszic</h2>
+        <a href="https://www.facebook.com/Spotted-Staszic-1955688781360878/">
+          <h2>Spotted Staszic</h2>
+        </a>
         {isAuth ? (
           <HeaderUser>
             <span>Witaj, { loggedUser }</span>
@@ -55,7 +66,7 @@ const Main = ({ isAuth, database, loggedUser }) => {
         <StyledForm tellForm onSubmit={sendTell}>
           <TextArea cols="30" rows="5" placeholder="Send a tell.." value={tell} onChange={updateTell}></TextArea>
           <Button type="submit">Send</Button>
-          {errMessage.length > 5 ? (<ErrorMessage>{errMessage}</ErrorMessage>) : null}
+          {errMessage.length > 5 ? (<ErrorMessage succed={succes} >{errMessage}</ErrorMessage>) : null}
         </StyledForm>
       </section>
     </ComponentWrapper>
