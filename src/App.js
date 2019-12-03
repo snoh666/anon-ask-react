@@ -20,8 +20,6 @@ function App({ firebase, isAuth }) {
     bgColor: '#ffffff'
   }
 
-  console.log(isAuth);
-
   return (
     <Router>
       <ThemeProvider theme={theme}>
