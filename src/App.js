@@ -8,11 +8,11 @@ import Tells from './components/tells';
 import Wrapper from './components/styled-components/Wrapper';
 import {ThemeProvider} from 'styled-components';
 
+import { connect } from 'react-redux';
+import { getUserData } from './redux/actions'
 
-function App({ firebase }) {
 
-  const [isAuth, setAuth] = useState(false);
-  const [loggedUser, setLoggedUser] = useState('');
+function App({ firebase, isAuth, username }) {
 
   const theme = {
     fontColor: '#e84393',
@@ -26,10 +26,10 @@ function App({ firebase }) {
         <Wrapper>
           <Switch>
             <Route exact path="/">
-              <Main isAuth={isAuth} database={firebase} loggedUser={loggedUser} />
+              <Main database={firebase} />
             </Route>
             <Route path="/login">
-              <Login setLoggedUser={setLoggedUser} database={firebase} setAuth={setAuth} isAuth={isAuth} />
+              <Login database={firebase} />
             </Route>
             <PrivateRoute database={firebase} isAuth={isAuth} path="/tells" Component={Tells} />
           </Switch>
@@ -39,4 +39,7 @@ function App({ firebase }) {
   );
 }
 
-export default App;
+export default connect(
+  getUserData,
+  null
+)(App);
