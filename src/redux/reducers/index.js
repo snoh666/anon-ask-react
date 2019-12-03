@@ -1,6 +1,7 @@
 const initialState = {
   userData: {
-    isAuth: false
+    isAuth: false,
+    username: undefined
   },
   database: {}
 };
