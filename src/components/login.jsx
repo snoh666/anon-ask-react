@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+import { getUserData, LogIn } from '../redux/actions';
+
 import StyledForm from './styled-components/StyledForm';
 import ErrorMessage from './styled-components/ErrorMessage';
 import ComponentWrapper from './styled-components/ComponentWrapper';
@@ -9,7 +12,7 @@ import Input from './styled-components/Input';
 import Label from './styled-components/Label';
 import InputField from './styled-components/InputField';
 
-const Login = ({ setAuth, isAuth, database, setLoggedUser }) => {
+const Login = ({ database, isAuth, LogIn }) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -31,8 +34,11 @@ const Login = ({ setAuth, isAuth, database, setLoggedUser }) => {
         if (doc.exists) {
           if (doc.data().password === password) {
             setErrMessage('');
-            setLoggedUser(username);
-            setAuth(true);
+
+            LogIn({
+              isAuth: true,
+              username: username
+            });
           } else {
             setErrMessage("User or password is incorrect!");
           }
@@ -70,4 +76,7 @@ const Login = ({ setAuth, isAuth, database, setLoggedUser }) => {
   );
 }
 
-export default Login;
+export default connect(
+  getUserData,
+  { LogIn }
+)(Login);
