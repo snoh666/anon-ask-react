@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import { getUserData } from '../redux/actions';
+import { connect } from 'react-redux';
+
 import Button from './styled-components/Button';
 import TextArea from './styled-components/TextArea';
 import StyledForm from './styled-components/StyledForm';
@@ -8,7 +12,7 @@ import Header from './styled-components/Header';
 import ComponentWrapper from './styled-components/ComponentWrapper';
 import HeaderUser from './styled-components/HeaderUser';
 
-const Main = ({ isAuth, database, loggedUser }) => {
+const Main = ({ database, isAuth, username }) => {
 
   const [tell, setTell] = useState('');
   const [errMessage, setErrMessage] = useState('');
@@ -57,7 +61,7 @@ const Main = ({ isAuth, database, loggedUser }) => {
         </a>
         {isAuth ? (
           <HeaderUser>
-            <span>Witaj, { loggedUser }</span>
+            <span>Witaj, { username }</span>
             <Link to="/tells"><Button tellCheck>Sprawdz pytania</Button></Link>
           </HeaderUser>
         ) : (<Link to="/login"><Button>Login</Button></Link>)}
@@ -73,4 +77,7 @@ const Main = ({ isAuth, database, loggedUser }) => {
   );
 }
 
-export default Main;
+export default connect(
+  getUserData,
+  null
+)(Main);
