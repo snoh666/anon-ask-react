@@ -9,16 +9,18 @@ import Wrapper from './components/styled-components/Wrapper';
 import {ThemeProvider} from 'styled-components';
 
 import { connect } from 'react-redux';
-import { getUserData } from './redux/actions'
+import { isLogged } from './redux/actions'
 
 
-function App({ firebase, isAuth, username }) {
+function App({ firebase, isAuth }) {
 
   const theme = {
     fontColor: '#e84393',
     hoverColor: '#BDC3C7',
     bgColor: '#ffffff'
   }
+
+  console.log(isAuth);
 
   return (
     <Router>
@@ -40,6 +42,6 @@ function App({ firebase, isAuth, username }) {
 }
 
 export default connect(
-  getUserData,
+  isLogged,
   null
 )(App);
