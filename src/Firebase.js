@@ -1,16 +1,20 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import dotenv from 'dotenv';
 
+dotenv.config();
+
+console.log(process.env);
 const config = {
-  apiKey: "AIzaSyAsjc-8h32zPZh0qJIBDU1_XSCDxtvhGXE",
-  authDomain: "spotted-staszicv2.firebaseapp.com",
-  databaseURL: "https://spotted-staszicv2.firebaseio.com",
-  projectId: "spotted-staszicv2",
-  storageBucket: "",
-  messagingSenderId: "948345929307",
-  appId: "1:948345929307:web:b846e779c8b6f59778097e",
-  measurementId: "G-7KLNE78VG8"
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASEURL,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGEINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
+  measurementId: process.env.REACT_APP_MEASUREMENTID
 };
 
 firebase.initializeApp(config);
