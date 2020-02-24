@@ -34,7 +34,7 @@ const Header = styled.header`
       transition: transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     &:hover::after{
-      transform: scaleX(1.15);
+      transform: scaleX(1);
     }
   }
 `;
