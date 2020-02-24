@@ -5,7 +5,7 @@ const Label = styled.label`
   top: .5em;
   left: 0;
   font-size: .8em;
-  transition: top .4s ease;
+  transition: top .2s cubic-bezier(0.645, 0.045, 0.355, 1);
   color: #dfe6e9;
 `;
 
