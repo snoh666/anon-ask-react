@@ -9,7 +9,6 @@ import { ThemeProvider } from 'styled-components';
 import Wrapper from './components/styled-components/Wrapper';
 import Header from './components/styled-components/Header';
 import HeaderUser from './components/styled-components/HeaderUser';
-import Button from './components/styled-components/Button';
 
 import { connect } from 'react-redux';
 import { getUserData } from './redux/actions'
@@ -33,7 +32,7 @@ function App({ firebase, isAuth, username }) {
             </Link>
             {isAuth ? (
               <HeaderUser>
-                <span>Witaj, {username}</span>
+                <span>Witaj, {username}. </span>
                 <Link to="/tells">Sprawdz pytania</Link>
               </HeaderUser>
             ) : (<Link to="/login">Login</Link>)}
