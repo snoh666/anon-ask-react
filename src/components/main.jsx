@@ -8,11 +8,9 @@ import Button from './styled-components/Button';
 import TextArea from './styled-components/TextArea';
 import StyledForm from './styled-components/StyledForm';
 import ErrorMessage from './styled-components/ErrorMessage';
-import Header from './styled-components/Header';
 import ComponentWrapper from './styled-components/ComponentWrapper';
-import HeaderUser from './styled-components/HeaderUser';
 
-const Main = ({ database, isAuth, username }) => {
+const Main = ({ database }) => {
 
   const [tell, setTell] = useState('');
   const [errMessage, setErrMessage] = useState('');
@@ -55,17 +53,6 @@ const Main = ({ database, isAuth, username }) => {
 
   return (
     <ComponentWrapper>
-      <Header>
-        <a href="https://www.facebook.com/Spotted-Staszic-1955688781360878/">
-          <h2>Spotted Staszic</h2>
-        </a>
-        {isAuth ? (
-          <HeaderUser>
-            <span>Witaj, { username }</span>
-            <Link to="/tells"><Button tellCheck>Sprawdz pytania</Button></Link>
-          </HeaderUser>
-        ) : (<Link to="/login"><Button>Login</Button></Link>)}
-      </Header>
       <section>
         <StyledForm tellForm onSubmit={sendTell}>
           <TextArea cols="30" rows="5" placeholder="Send a tell.." value={tell} onChange={updateTell}></TextArea>
