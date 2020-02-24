@@ -28,9 +28,9 @@ function App({ firebase, isAuth, username }) {
       <ThemeProvider theme={theme}>
         <Wrapper>
           <Header>
-            <a href="https://www.facebook.com/Spotted-Staszic-1955688781360878/">
+            <Link to="/">
               <h2>Spotted Staszic</h2>
-            </a>
+            </Link>
             {isAuth ? (
               <HeaderUser>
                 <span>Witaj, {username}</span>
