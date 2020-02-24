@@ -34,9 +34,9 @@ function App({ firebase, isAuth, username }) {
             {isAuth ? (
               <HeaderUser>
                 <span>Witaj, {username}</span>
-                <Link to="/tells"><Button tellCheck>Sprawdz pytania</Button></Link>
+                <Link to="/tells">Sprawdz pytania</Link>
               </HeaderUser>
-            ) : (<Link to="/login"><Button>Login</Button></Link>)}
+            ) : (<Link to="/login">Login</Link>)}
           </Header>
           <Switch>
             <Route exact path="/">
