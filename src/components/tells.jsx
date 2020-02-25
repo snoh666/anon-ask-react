@@ -39,7 +39,6 @@ const Tells = ({ database }) => {
 export default Tells;
 
 const TellsWrapper = styled.div`
-  margin-top: 80px;
   width: 100%;
   padding: 0 50px;
 `;
