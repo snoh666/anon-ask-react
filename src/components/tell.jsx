@@ -1,5 +1,6 @@
 import React from 'react'
 import GridWrapper from './styled-components/GridWrapper';
+import styled from 'styled-components';
 
 const Tell = ({data: {tell, time, isAdded}, currentTime}) => {
 
@@ -24,7 +25,9 @@ const Tell = ({data: {tell, time, isAdded}, currentTime}) => {
 
   return (
     <GridWrapper>
-      <div>{tell}</div>
+      <TellName>
+        <span>{tell}</span>
+      </TellName>
       <div>
         {getTime(time)}
       </div>
@@ -36,3 +39,9 @@ const Tell = ({data: {tell, time, isAdded}, currentTime}) => {
 }
 
 export default Tell;
+
+
+const TellName = styled.div`
+  width: 100%;
+  padding: 0 1rem;
+`;
