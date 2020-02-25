@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Tell from './tell';
 
 import styled from 'styled-components';
+import ComponentWrapper from './styled-components/ComponentWrapper';
 
 const Tells = ({ database }) => {
 
@@ -22,14 +23,16 @@ const Tells = ({ database }) => {
   }).catch(err => console.log(err));
 
   return (
-    <TellsWrapper>
-      <h3>Tells</h3>
-      <TellsContent>
-        {
-          tells.map(tellData => ( <Tell key={tellData.id} data={tellData} currentTime={currentTime} /> ))
-        }
-      </TellsContent>
-    </TellsWrapper>
+    <ComponentWrapper>
+      <TellsWrapper>
+        <h3>Tells</h3>
+        <TellsContent>
+          {
+            tells.map(tellData => (<Tell key={tellData.id} data={tellData} currentTime={currentTime} />))
+          }
+        </TellsContent>
+      </TellsWrapper>
+    </ComponentWrapper>
   );
 }
 
