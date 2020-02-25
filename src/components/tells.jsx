@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Tell from './tell';
 
+import styled from 'styled-components';
+
 const Tells = ({ database }) => {
 
   const [tells, setTells] = useState([]);
@@ -20,15 +22,25 @@ const Tells = ({ database }) => {
   }).catch(err => console.log(err));
 
   return (
-    <div>
+    <TellsWrapper>
       <h3>Tells</h3>
-      <div>
+      <TellsContent>
         {
           tells.map(tellData => ( <Tell key={tellData.id} data={tellData} currentTime={currentTime} /> ))
         }
-      </div>
-    </div>
+      </TellsContent>
+    </TellsWrapper>
   );
 }
 
 export default Tells;
+
+const TellsWrapper = styled.div`
+  margin-top: 80px;
+  width: 100%;
+  padding: 0 50px;
+`;
+
+const TellsContent = styled.div`
+  margin-top: 50px;
+`;
