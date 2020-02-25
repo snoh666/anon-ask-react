@@ -32,8 +32,8 @@ function App({ firebase, isAuth, username }) {
             </Link>
             {isAuth ? (
               <HeaderUser>
-                <span>Witaj, {username}. </span>
-                <Link to="/tells">Sprawdz pytania</Link>
+                <span>Hi, {username}. </span>
+                <Link to="/tells">Check Tells</Link>
               </HeaderUser>
             ) : (<Link to="/login">Login</Link>)}
           </Header>
