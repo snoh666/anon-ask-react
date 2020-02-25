@@ -1,5 +1,4 @@
 import React from 'react'
-import GridWrapper from './styled-components/GridWrapper';
 import styled from 'styled-components';
 
 const Tell = ({data: {tell, time, isAdded}, currentTime}) => {
@@ -44,4 +43,10 @@ export default Tell;
 const TellName = styled.div`
   width: 100%;
   padding: 0 1rem;
+`;
+
+const GridWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr .5fr 30px;
+  grid-gap: 20px 10px;
 `;
