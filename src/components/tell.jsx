@@ -48,6 +48,15 @@ const TellName = styled.div`
 const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr .5fr 30px;
-  grid-gap: 20px 10px;
-  margin: 10px 0;
+  grid-gap: 20px 0px;
+
+  border-top: 1px solid ${props => props.theme.fontColor};
+  border-bottom: 1px solid ${props => props.theme.fontColor};
+
+  div {
+    padding: 0 5px;
+    border-collapse: collapse;
+    border-left: 1px solid ${props => props.theme.fontColor};
+    border-right: 1px solid ${props => props.theme.fontColor};
+  }
 `;
